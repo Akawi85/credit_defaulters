@@ -1,18 +1,18 @@
 # credit_defaulters
 
-The aim of this project is to analyze clients behaviour towards credit card issuance and repayments on credit. The project uses data from the UCI Malchine Learning Repository [found here](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients). The ultimate goal is to develop a model that predicts which clients will default on their credit card payment and those who wouldn't.
+The aim of this project is to analyze clients behaviour towards credit card issuance and repayments on credit. The project uses data from the UCI Machine Learning Repository [found here](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients). The ultimate goal is to develop a model that predicts which clients will default on their credit card payment and those who wouldn't.
 
 The project was executed in the following outline:
 
 - Exploratory data analysis
 - preprocessing
-- Application of different classification algorithms for model generation
 - Application of neural network algorithm
+- Application of different classification algorithms for model generation
 - Selection of best prediction model
 - Training on entire dataset
 - Final notes
 
-The goal of this project is to create a reliable service for banks and other credit card issuance companies that helps to detect clients who will default on the card repayments given some highlighted features of the client. This service will enable these credit card issuance companies detect defaulters beforehand, thereby averting loss of credit, mitigate against the rising cost of legal actions accrued in pursuance of defaulters, increase productivity of staff who will now spend less time verifying clients credibility, ensure smoother credit card issuance process for credible clients amongst others.
+The goal of this project is to create a reliable service for banks and other credit card issuance companies that helps to detect clients who will default on the card repayments given some highlighted features of the client. This service will enable these credit card issuance companies detect defaulters beforehand, thereby averting loss of credit, mitigate against the rising cost of legal actions accrued in pursuance of defaulters, increase productivity of staff who will now spend less time verifying clients credibility, ensure smoother credit card issuance process to credible clients amongst others.  
 
 ### Brief Summary on dataset features:  
 * PAY_0 and PAY_2–PAY_6: These columns show the status of repayments made by each credit-card customer whose details are listed in the dataset. The six columns cover repayments made from April 2005 through September 2005, in reverse order. For example, PAY_0 indicates a customer's repayment status in September 2005 and PAY_6 indicates the customer's repayment status in April 2005.  
@@ -27,7 +27,9 @@ PAY_0 was renamed to PAY_1. This ensured that the PAY_X names conform to the nam
 
 ### Exploratory Data Analysis (EDA)
 
-For ease of analysis, the EDA was performed using `Pandas-profiling` package. The `Pandas-Profiling` package generates profile reports (.html or other extensions) from a pandas DataFrame. The profile report can be found [here]()
+For ease of analysis, the EDA was performed using `Pandas-profiling` package. The `Pandas-Profiling` package generates profile reports (.html or other extensions) from a pandas DataFrame. The profile report can be found [here](https://github.com/Akawi85/credit_defaulters/blob/main/credi_card_default_EDA.html)  
+
+***PS: Download the HTML file to explore the report in a browser***
 
 ### Preprocessing
 
@@ -50,3 +52,11 @@ The task is a supervised learning task that requires the application of binary c
 Deep learning techniques were also be implemented to generate a deep neural network for classification using the `tensorflow.keras` library.
 
 The accuracy metrics of the generated models was compared and the model with the best performance was used for training on the entire dataset.
+
+From all the applied algorithms, the **Deep Neural network** performed best by yielding an **accuracy score** of approximately **0.825** on the test set of **3,000** samples. This accuracy score on the test data outperformed that of **SVC** which had **accuracy score** of **0.822**, **KNN’s 0.816, Logistics Regression’s 0.807, Multinomial Naive Bayes’ 0.779, Decision Trees 0.775** and **Random Forest’s 0.824**.  
+Thus, the Neural network was selected for training on the entire data and the accuracy score on the test data improved to **0.826** 
+
+***PS: The model generated from just the training data is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir) folder with the alias `model.h5`, while the model trained on the entire data is found in the same directory with the alias `nn_model.h5`.***
+
+
+This model was deployed to **Credit Star**. A web app that provides credit scoring services to clients of credit card issuing companies.
