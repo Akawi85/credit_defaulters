@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <title>Predict Credit Defaulters</title>
+
+
+       <div class="container">
+  
+        
+        <form method="POST" action="/predict">
+           Gender: 
+           <select class="gender" id="gender_dropdown_selector" name="gender_dropdown" required>
+                <option></option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select><br><br>
+
+            Education:
+           <select class="education" id="education_dropdown_selector" name="education_dropdown" required>
+                <option></option>
+                <option value="1">Graduate School</option>
+                <option value="2">University</option>
+                <option value="3">High School</option>
+                <option value="4">Others</option>
+            </select><br><br>
+
+
+            <label for="Age"> Age:  
+                <input type="number" id="Age" name="age" min="21" max="80" required> </label><br><br>
+
+
+                Marital Status:
+                <select class="marital" id="marital_dropdown_selector" name="marital_dropdown" required>
+                     <option></option>
+                     <option value="2">Single</option>
+                     <option value="1">Married</option>
+                     <option value="3">Divorced</option>
+                     <option value="0">Others</option>
+                </select><br><br>
+
+                 <label for="loan_amnt"> Loan Amount:  
+                    <input type="number" id="loan_amnt" name="loan_amnt" min="10000" max="1000000" required> 
+                 </label><br>
+          
+                 
+            <h2>History of Past Six Months Payment</h2>
+            <label for="bill_amnt_1"> First Month Bill: 
+                <input type="number" id="bill_amnt_1" name="bill_amnt_1" required>
+            </label>      
+            <label for="pay_amnt_1"> Amount Paid in First Month: 
+                <input type="number" id="pay_amnt_1" name="pay_amnt_1" min="0" required>
+            </label>
+            <label for="pay_status_1"> Repayment Status for First Month:
+                <select class="pay_status_1" id="pay_status_1" name="pay_status_1" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br>
+
+
+            <label for="bill_amnt_2"> Second Month Bill: 
+                <input type="number" id="bill_amnt_2" name="bill_amnt_2" required> 
+            </label>
+            <label for="pay_amnt_2"> Amount Paid in Second Month: 
+                <input type="number" id="pay_amnt_2" name="pay_amnt_2" min="0" required>
+            </label>
+            <label for="pay_status_2"> Status for Second Month:
+                <select class="pay_status_2" id="pay_status_2" name="pay_status_2" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br>
+
+
+            <label for="bill_amnt_3"> Third Month Bill: 
+                <input type="number" id="bill_amnt_3" name="bill_amnt_3" required> 
+            </label>
+            <label for="pay_amnt_3"> Amount Paid in Third Month: 
+                <input type="number" id="pay_amnt_3" name="pay_amnt_3" min="0" required>
+            </label>
+            <label for="pay_status_3"> Status for Third Month:
+                <select class="pay_status_3" id="pay_status_3" name="pay_status_3" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br>
+            
+
+            <label for="bill_amnt_4"> Fourth Month Bill: 
+                <input type="number" id="bill_amnt_4" name="bill_amnt_4" required> 
+            </label>
+            <label for="pay_amnt_4"> Amount Paid in Fourth Month: 
+                <input type="number" id="pay_amnt_4" name="pay_amnt_4" min="0" required>
+            </label>
+            <label for="pay_status_4"> Status for Fourth Month:
+                <select class="pay_status_4" id="pay_status_4" name="pay_status_4" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br>
+
+
+            <label for="bill_amnt_5"> Fifth Month Bill: 
+                <input type="number" id="bill_amnt_5" name="bill_amnt_5" required> 
+            </label>
+            <label for="pay_amnt_5"> Amount Paid in Fifth Month: 
+                <input type="number" id="pay_amnt_5" name="pay_amnt_5" min="0" required>
+            </label>
+            <label for="pay_status_5"> Status for Fifth Month:
+                <select class="pay_status_5" id="pay_status_5" name="pay_status_5" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br> 
+
+
+            <label for="bill_amnt_6"> Sixth Month Bill: 
+                <input type="number" id="bill_amnt_6" name="bill_amnt_6" required> 
+            </label>
+            <label for="pay_amnt_6"> Amount Paid in Sixth Month: 
+                <input type="number" id="pay_amnt_6" name="pay_amnt_6" min="0" required>
+            </label>
+            <label for="pay_status_6"> Status for Sixth Month:
+                <select class="pay_status_6" id="pay_status_6" name="pay_status_6" required>
+                    <option></option>
+                    <option value="-2">No Consumption</option>
+                    <option value="-1">Paid in Full</option>
+                    <option value="0">Revolving Credit</option>
+                    <option value="1">Delayed for 1 Month</option>
+                    <option value="2">Delayed for 2 Months</option>
+                    <option value="3">Delayed for 3 Months</option>
+                    <option value="4">Delayed for 4 Months</option>
+                    <option value="5">Delayed for 5 Months</option>
+                    <option value="6">Delayed for 6 Months</option>
+                    <option value="7">Delayed for 7 Months</option>
+                    <option value="8">Delayed for 8 Months</option>
+                    <option value="9">Delayed for 9 Months</option>
+                </select>
+            </label><br><br>
+    
+
+            <button type="predict" name="predict">Predict</button>
+        </form>
+    </div>
+</html>
