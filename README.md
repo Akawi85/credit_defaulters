@@ -56,7 +56,7 @@ The accuracy metrics of the generated models was compared and the model with the
 From all the applied algorithms, the **Deep Neural network** performed best by yielding an **accuracy score** of approximately **0.825** on the test set of **3,000** samples. This accuracy score on the test data outperformed that of **SVC** which had **accuracy score** of **0.822**, **KNN’s 0.816, Logistics Regression’s 0.807, Multinomial Naive Bayes’ 0.779, Decision Trees 0.775** and **Random Forest’s 0.824**.  
 Thus, the Neural network was selected for training on the entire data and the accuracy score on the test data improved to **0.826** 
 
-***PS: The model generated from just the training data is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir) folder with the alias `model.h5`, while the model trained on the entire data is found in the same directory with the alias `nn_model.h5`.***
+***PS: The model trained on the entire data is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir) folder with the alias `nn_model.h5`.***
 
 
 This model was deployed to **Credit Star**. A web app that provides credit scoring services to clients of credit card issuing companies.
