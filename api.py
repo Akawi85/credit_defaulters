@@ -3,13 +3,11 @@
 # import relevant libraries
 from flask import Flask, request, render_template
 import numpy as np
-from keras.models import load_model
+from tensorflow import keras
 from joblib import load
 
 # Load model
-# filename = 'model_dir/new_model'
-# loaded_model = pickle.load(open(filename, 'rb'))
-loaded_model = load_model('./model_dir/nn_model.h5')
+loaded_model = keras.models.load_model('./model_dir/nn_model.h5')
 scaler = load('scaler.joblib')
 
 print('@@ Model Loaded!')
