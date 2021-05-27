@@ -7,7 +7,7 @@ from tensorflow import keras
 from joblib import load
 
 # Load model
-loaded_model = keras.models.load_model('./model_dir/nn_model.h5')
+loaded_model = keras.models.load_model('./model_dir/model.h5')
 scaler = load('scaler.joblib')
 
 print('@@ Model Loaded!')
