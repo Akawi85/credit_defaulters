@@ -12,7 +12,7 @@ The project was executed in the following outline:
 - Training on entire dataset
 - Final notes
 
-The goal of this project is to create a reliable service for banks and other credit card issuance companies that helps to detect clients who will default on the card repayments given some highlighted features of the client. This service will enable these credit card issuance companies detect defaulters beforehand, thereby averting loss of credit, mitigate against the rising cost of legal actions accrued in pursuance of defaulters, increase productivity of staff who will now spend less time verifying clients credibility, ensure smoother credit card issuance process to credible clients amongst others.  
+The goal of this project is to create a reliable service for banks and other credit card issuance companies that helps to detect clients who will default on the credit repayments given some highlighted features of the client. This service will enable these credit card issuance companies detect defaulters beforehand, thereby averting loss of credit, mitigate against the rising cost of legal actions accrued in pursuance of defaulters, increase productivity of staff who will now spend less time verifying clients credibility, ensure smoother credit card issuance process to credible clients amongst others.  
 
 ### Brief Summary on dataset features:  
 * PAY_0 and PAY_2–PAY_6: These columns show the status of repayments made by each credit-card customer whose details are listed in the dataset. The six columns cover repayments made from April 2005 through September 2005, in reverse order. For example, PAY_0 indicates a customer's repayment status in September 2005 and PAY_6 indicates the customer's repayment status in April 2005.  
@@ -27,34 +27,34 @@ PAY_0 was renamed to PAY_1. This ensured that the PAY_X names conform to the nam
 
 ### Exploratory Data Analysis (EDA)
 
-For ease of analysis, the EDA was performed using `Pandas-profiling` package. The `Pandas-Profiling` package generates profile reports (.html or other extensions) from a pandas DataFrame. The profile report can be found [here](https://github.com/Akawi85/credit_defaulters/blob/main/credi_card_default_EDA.html)  
+For ease of analysis, the EDA was performed using `Pandas-profiling` package. The `Pandas-Profiling` package generates profile reports in `html` and other extensions from a pandas DataFrame. The profile report can be found [here](https://github.com/Akawi85/credit_defaulters/blob/main/credi_card_default_EDA.html)  
 
 ***PS: Download the HTML file to explore the report in a browser***
 
 ### Preprocessing
 
 The preprocessing steps taken includes:  
-- Unlike what we saw in the Data Dictionary, the profile report shows that `EDUCATION` column has 7 distinct values. Since the values with explicit information are just `1=graduate school, 2=university, 3=high school, 4=others,` with the rest (0, 5, 6) representing unknown, rows that hold these under representing values were converted to `4` (others).
-- The entire dataset into training and test sets for training and validation
-- standardization technique was employed to scale the values in the dataset
+- Unlike what we saw in the Data Dictionary, the profile report shows that `EDUCATION` column has 7 distinct values. Since the values with explicit information are just `1=graduate school, 2=university, 3=high school, 4=others,` with the rest (0, 5, 6) representing `unknown`, rows that hold these under representing values were all converted to `4` (others).
+- Splitting the entire dataset into training and test sets for training and testing of algorithms
+- Standardization technique was used to scale and normalize the values in the dataset
 
 # Modelling
 
-The task is a supervised learning task that requires the application of binary classification algorithms to correctly classify credit card users into defaulters and non-defaulters. There are numerous classification algorithms with implementations in scikit-learn. For the purpose of this project, 6 most popular clasification algorithms were used for modelling. The accuracy metric was used for evaluating the performance of each model. The algorithms include:
+The task is a supervised learning task that requires the application of binary classification algorithms to correctly classify credit card users into  `defaulters` and `non-defaulters`. There are numerous classification algorithms with implementations in scikit-learn. For the purpose of this project, 7 most popular clasification algorithms were used for modelling. The `f1` score was chosen as the preferred metric for evaluating algorithms, due to class imbalance of the predicted feature. The algorithms include:
 
-- Naive Bayes
+- Multinomial Naive Bayes
 - Logistic regression
 - K-nearest neighbors
-- (Kernel) SVM
+- Support Vector Classifier (SCV)
 - Decision tree
-- Ensemble learning
+- Ensemble learning (Random Forest)
 - Extreme Gradient Boosting (XGB)
 
 Deep learning techniques were also be implemented to generate a deep neural network for classification using the `tensorflow.keras` library.
 
-The **f1** metrics of the generated models was compared and the model with the best **f1** score was used for training on the entire dataset.
+The **f1** metrics of the generated models was compared and the model with the best **f1** score was used for training the entire dataset.
 
-From all the applied algorithms, the **eXtreme Gradient Boosting** performed best by yielding an **f1 score** of approximately **0.56** on the test set of **3,000** samples. This f1 score on the test data outperformed that of **SVC** which had an **f1 score** of **0.546**, **KNN’s 0.429, Logistics Regression’s 0.463, Multinomial Naive Bayes’ 0.5, Decision Trees 0.421**,  **Random Forest’s 0.556** and Neural Network's **0.359**. Thus, the XGB Classifier was selected for training the entire data.
+From all the applied algorithms, the **Extreme Gradient Booster (XGB)** performed best by yielding an **f1 score** of approximately **0.56** on the test set of **3,000** samples. This f1 score on the test data outperformed that of **SVC** which had an **f1 score** of **0.546**, **KNN’s 0.429, Logistics Regression’s 0.463, Multinomial Naive Bayes’ 0.5, Decision Trees 0.421**,  **Random Forest’s 0.556** and Neural Network's **0.359**. Thus, the `XGB` Classifier was selected for training the entire data.
 
 ***PS: The XGBoost algorithm was used to train the entire data and the generated model is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir)***
 
