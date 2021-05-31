@@ -48,15 +48,15 @@ The task is a supervised learning task that requires the application of binary c
 - (Kernel) SVM
 - Decision tree
 - Ensemble learning
+- Extreme Gradient Boosting (XGB)
 
 Deep learning techniques were also be implemented to generate a deep neural network for classification using the `tensorflow.keras` library.
 
-The accuracy metrics of the generated models was compared and the model with the best performance was used for training on the entire dataset.
+The **f1** metrics of the generated models was compared and the model with the best **f1** score was used for training on the entire dataset.
 
-From all the applied algorithms, the **Deep Neural network** performed best by yielding an **accuracy score** of approximately **0.825** on the test set of **3,000** samples. This accuracy score on the test data outperformed that of **SVC** which had **accuracy score** of **0.822**, **KNN’s 0.816, Logistics Regression’s 0.807, Multinomial Naive Bayes’ 0.779, Decision Trees 0.775** and **Random Forest’s 0.824**.  
-Thus, the Neural network was selected for training on the entire data and the accuracy score on the test data improved to **0.826** 
+From all the applied algorithms, the **eXtreme Gradient Boosting** performed best by yielding an **f1 score** of approximately **0.56** on the test set of **3,000** samples. This f1 score on the test data outperformed that of **SVC** which had an **f1 score** of **0.546**, **KNN’s 0.429, Logistics Regression’s 0.463, Multinomial Naive Bayes’ 0.5, Decision Trees 0.421**,  **Random Forest’s 0.556** and Neural Network's **0.359**. Thus, the XGB Classifier was selected for training the entire data.
 
-***PS: The model trained on the entire data is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir) folder with the alias `nn_model.h5`.***
+***PS: The XGBoost algorithm was used to train the entire data and the generated model is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir)***
 
-
-This model was deployed to **Credit Star**. A web app that provides credit scoring services to clients of credit card issuing companies.
+A predictive API was generated using this model and deployed on heroku. You can perform a prediction using the [link]().  
+The API is used by **Credit Star**, A Web APP that evaluates the credit worthiness of clients of credit card issuing companies.

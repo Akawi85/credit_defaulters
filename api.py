@@ -3,11 +3,11 @@
 # import relevant libraries
 from flask import Flask, request, render_template
 import numpy as np
-from tensorflow import keras
 from joblib import load
+import pickle
 
-# Load model
-loaded_model = keras.models.load_model('./model_dir/model.h5')
+# Load model and scaler
+loaded_model = pickle.load(open('./model_dir/xgb_model.pkl', 'rb'))
 scaler = load('scaler.joblib')
 
 print('@@ Model Loaded!')
@@ -32,10 +32,8 @@ def predict_defaults(data_ints):
 
 # ---->>> Credit Default Prediction End <<<-----
 
-
 # api definition
 app = Flask(__name__)
-
 
 # ---------------------------------------------------------------------------------------------------
 @app.route("/")
