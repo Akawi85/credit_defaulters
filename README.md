@@ -58,5 +58,5 @@ From all the applied algorithms, the **eXtreme Gradient Boosting** performed bes
 
 ***PS: The XGBoost algorithm was used to train the entire data and the generated model is found in the [model_dir](https://github.com/Akawi85/credit_defaulters/blob/main/model_dir)***
 
-A predictive API was generated using this model and deployed on heroku. You can perform a prediction using the [link]().  
-The API is used by **Credit Star**, A Web APP that evaluates the credit worthiness of clients of credit card issuing companies.
+A predictive API was generated using this model and deployed on heroku. You can run a prediction using the [link](https://credit-defaulters.herokuapp.com/).  
+The API is used by **Credit Star**, A Web APP that evaluates the credit worthiness of clients of credit card issuing firms.
